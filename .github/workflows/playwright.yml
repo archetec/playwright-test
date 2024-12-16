@@ -10,7 +10,7 @@ jobs:
 
     services:
       docker:
-        image: mcr.microsoft.com/playwright:focal  # Use official Playwright Docker image
+        image: mcr.microsoft.com/playwright:v1.49.1-noble  # Use official Playwright Docker image
 
     steps:
     - name: Checkout repository
@@ -23,7 +23,7 @@ jobs:
           --shm-size=1gb \
           -v ${{ github.workspace }}:/work \
           -w /work/playwright-project \
-          mcr.microsoft.com/playwright:noble \
+          mcr.microsoft.com/playwright:v1.49.1-noble \
           /bin/bash -c "npm install && npx playwright install && npx playwright test"
 
     - name: Upload Playwright Test Report
